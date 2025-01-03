@@ -1,10 +1,176 @@
-<!DOCTYPE html>
-<html lang="ru">
+<DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lunera Studio</title>
   <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Base Styles */
+    body {
+      font-family: 'Lora', serif;
+      margin: 0;
+      padding: 0;
+      color: #333;
+      background: #f2f2f2;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    .header {
+      background: #f0e8d7;
+      color: #000;
+      padding: 20px 0;
+    }
+
+    .header .logo {
+      font-size: 1.8em;
+      font-weight: bold;
+    }
+
+    .nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: space-around;
+    }
+
+    .nav ul li a {
+      color: #000;
+      text-decoration: none;
+      padding: 10px 20px;
+      transition: color 0.3s;
+    }
+
+    .nav ul li a:hover {
+      color: #9c6d3d;
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 100px 0;
+      background: linear-gradient(to right, #d8a8b8, #b078a5);
+      color: #fff;
+    }
+
+    .hero h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 1.5em;
+    }
+
+    .cta-button {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 15px 30px;
+      color: #fff;
+      background: #9c6d3d;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    .cta-button:hover {
+      background: #6d4c2e;
+    }
+
+    /* Section */
+    .section {
+      padding: 50px 0;
+      color: #000;
+    }
+
+    .section h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 2.5em;
+    }
+
+    .section ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .section ul li {
+      margin-bottom: 10px;
+      font-size: 1.2em;
+    }
+
+    /* Services Section */
+    .services-block {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .service-item {
+      flex: 1;
+      margin: 15px;
+      min-width: 250px;
+      background-color: #f4f4f4;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .service-item h3 {
+      font-size: 1.5em;
+      margin-bottom: 10px;
+    }
+
+    .service-item ul {
+      padding-left: 20px;
+    }
+
+    .service-item ul li {
+      margin-bottom: 8px;
+    }
+
+    /* Contact Form */
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    form input,
+    form textarea,
+    form button {
+      margin-bottom: 15px;
+      padding: 10px;
+      font-size: 1em;
+      border: none;
+      border-radius: 5px;
+    }
+
+    form button {
+      background: #9c6d3d;
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    form button:hover {
+      background: #6d4c2e;
+    }
+
+    /* Footer */
+    .footer {
+      background: #f0e8d7;
+      color: #000;
+      text-align: center;
+      padding: 20px 0;
+    }
+  </style>
 </head>
 <body>
   <!-- Header -->
@@ -13,11 +179,10 @@
       <div class="logo">Lunera Studio</div>
       <nav class="nav">
         <ul>
-          <li><a href="#about">О нас</a></li>
-          <li><a href="#services">Условия работы и оплаты</a></li>
-          <li><a href="#requirements">Требования</a></li>
-          <li><a href="#vacancies">Вакансии</a></li>
-          <li><a href="#contact">Консультация</a></li>
+          <li><a href="#about">О НАС</a></li>
+          <li><a href="#services">УСЛОВИЯ СОТРУДНИЧЕСТВА</a></li>
+          <li><a href="#requirements">ТРЕБОВАНИЯ</a></li>
+          <li><a href="#contact">КОНСУЛЬТАЦИЯ</a></li>
         </ul>
       </nav>
     </div>
@@ -25,128 +190,140 @@
 
   <!-- Hero Section -->
   <section class="hero">
-    <h1>Добро пожаловать в Lunera Studio</h1>
-    <p>Заработок от 3000$ — процент 50-80%</p>
-    <a href="#contact" class="cta-button">Записаться на консультацию</a>
+    <h1>Lunera Studio</h1>
+    <p>РОСКОШЬ. КОМФОРТ. ВОЗМОЖНОСТИ.</p>
+    <a href="#contact" class="cta-button">ТВОЯ СТУДИЯ В СЕРБИИ</a>
   </section>
 
   <!-- About Section -->
-  <section id="about" class="section">
-    <div class="container">
-      <h2>О нас</h2>
-      <div class="about-block">
-        <p>Идея создания Lunera Studio зародилась из личного опыта и стремления изменить подход к индустрии. Наша команда прошла этот путь сама — от первых шагов в стримах до глубокого осознания того, как важно создавать условия, где комфорт, развитие и желание идут рука об руку.</p>
-        <p>Мы заметили, что многие модели сталкиваются с отсутствием поддержки, невозможностью строить личный бренд и недостатком времени для раскрытия своего потенциала. Это вдохновило нас на создание студии, которая не просто предлагает работу, но и помогает моделям строить долгосрочную карьеру, оставаться уверенными в себе и достигать как финансовой независимости так и сохранять время на себя.</p>
-        <p>Lunera Studio — это больше, чем студия. Это место, где каждая модель становится частью команды, работающей на общий успех. Мы понимаем, что создание личного бренда — это ключ к построению доверия и уникальности в индустрии. Поэтому мы предлагаем полную поддержку: от разработки вашего стиля и профессиональных портфолио до построения стратегии продвижения.</p>
-        <p>Мы объединили современный минимализм, высококачественное оборудование и глубоко продуманную систему поддержки. Наша студия стала пространством, где технологии и стиль помогают моделям раскрывать себя, не забывая о важности ментального комфорта и самореализации.</p>
-        <p>Сегодня Lunera Studio — это результат наших усилий, смелости и желания изменить правила игры. Мы предлагаем не только лучшие условия для работы, но и возможность стать кем-то большим, чем просто модель. Строить личный бренд, раскрывать свои сильные стороны и уверенно двигаться вперёд.</p>
-      </div>
+<section id="about" class="section">
+  <div class="container">
+    <h2>О НАС</h2>
+    <div class="about-block">
+      <p>
+        Идея создания Lunera Studio зародилась из личного опыта и стремления изменить подход к индустрии. Наша команда прошла этот путь сама — от первых шагов в стримах до глубокого осознания того, как важно создавать условия, где комфорт, развитие и желание идут рука об руку.
+      </p>
+      <p>
+        Мы заметили, что многие модели сталкиваются с отсутствием поддержки, невозможностью строить личный бренд и недостатком времени для раскрытия своего потенциала. Это вдохновило нас на создание студии, которая не просто предлагает работу, но и помогает моделям строить долгосрочную карьеру, оставаться уверенными в себе и достигать как финансовой независимости, так и сохранять время на себя.
+      </p>
+      <p>
+        Lunera Studio — это больше, чем студия. Это место, где каждая модель становится частью команды, работающей на общий успех. Мы понимаем, что создание личного бренда — это ключ к построению доверия и уникальности в индустрии. Поэтому мы предлагаем полную поддержку: от разработки вашего стиля и профессиональных портфолио до построения стратегии продвижения.
+      </p>
+      <p>
+        Сегодня Lunera Studio — это результат наших усилий, смелости и желания изменить правила игры. Мы предлагаем не только лучшие условия для работы, но и возможность стать кем-то большим, чем просто модель. Строить личный бренд, раскрывать свои сильные стороны и уверенно двигаться вперёд.
+      </p>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Services Section -->
+     <!-- Services Section -->
   <section id="services" class="section">
     <div class="container">
-      <h2>Условия работы и оплаты</h2>
+      <h2>УСЛОВИЯ СОТРУДНИЧЕСТВА</h2>
       <div class="services-block">
-        <h3>Оплата:</h3>
-        <ul>
-          <li>На начальном этапе работы — 50%</li>
-          <li>Возможность выбора смены:</li>
+        <div class="service-item">
+          <h3>Оплата:</h3>
           <ul>
-            <li>Днем (6 часов и более)</li>
-            <li>Ночью (5 часов и более)</li>
+            <li>На начальном этапе работы — 50%</li>
+            <li>Возможность выбора смены:</li>
+            <ul>
+              <li>Днем (6 часов и более)</li>
+              <li>Ночью (5 часов и более)</li>
+            </ul>
           </ul>
-        </ul>
+        </div>
+
+        <div class="service-item">
+          <h3>УСЛОВИЯ СОТРУДНИЧЕСТВА</h3>
+          <ul>
+            <li>Комфортные условия труда</li>
+            <li>Высококачественное оборудование</li>
+            <li>Техническая поддержка</li>
+            <li>Психологическая поддержка от специалистов</li>
+          </ul>
+        </div>
+
+        <div class="service-item">
+          <h3>Дополнительные бонусы и привилегии:</h3>
+          <ul>
+            <li>Подарки и дополнительные бонусы</li>
+            <li>Новые игрушки и аксессуары</li>
+            <li>Нижнее белье</li>
+          </ul>
+        </div>
         
-        <h3>Условия труда:</h3>
-        <ul>
-          <li>Комфортные условия труда</li>
-          <li>Высококачественное оборудование</li>
-          <li>Техническая поддержка</li>
-          <li>Психологическая поддержка от специалистов</li>
-        </ul>
+        <div class="service-item">
+          <h3>Поддержка здоровья:</h3>
+          <ul>
+            <li>Посещение дерматолога раз в 6 месяцев</li>
+            <li>Посещение косметолога раз в 3 месяца</li>
+            <li>Спа-процедуры раз в 3 месяца</li>
+            <li>Посещение врачей по назначению</li>
+          </ul>
+        </div>
 
-        <h3>Дополнительные бонусы и привилегии:</h3>
-        <ul>
-          <li>Подарки и дополнительные бонусы</li>
-          <li>Новые игрушки и аксессуары</li>
-          <li>Нижнее белье</li>
-        </ul>
+        <div class="service-item">
+          <h3>Обучение и поддержка:</h3>
+          <ul>
+            <li>Ежемесячные мастер-классы</li>
+            <li>Базовое обучение</li>
+            <li>Индивидуальные консультации</li>
+          </ul>
+        </div>
 
-        <h3>Поддержка здоровья:</h3>
-        <ul>
-          <li>Посещение дерматолога раз в 6 месяцев</li>
-          <li>Посещение косметолога раз в 3 месяца</li>
-          <li>Спа-процедуры раз в 3 месяца</li>
-          <li>Посещение врачей по назначению</li>
-        </ul>
+        <div class="service-item">
+          <h3>Лояльность и долгосрочные отношения:</h3>
+          <ul>
+            <li>Лояльность и долгосрочные отношения</li>
+            <li>Увеличенная процентная ставка для долгосрочных моделей</li>
+            <li>Денежные выплаты в нерабочие дни</li>
+          </ul>
+        </div>
 
-        <h3>Обучение и поддержка:</h3>
-        <ul>
-          <li>Ежемесячные мастер-классы</li>
-          <li>Базовое обучение</li>
-          <li>Индивидуальные консультации</li>
-        </ul>
-
-        <h3>Лояльность и долгосрочные отношения:</h3>
-        <ul>
-          <li>Лояльность и долгосрочные отношения</li>
-          <li>Увеличенная процентная ставка для долгосрочных моделей</li>
-          <li>Денежные выплаты в нерабочие дни</li>
-        </ul>
-
-        <h3>Конфиденциальность и безопасность:</h3>
-        <ul>
-          <li>Защита личных данных и анонимность</li>
-          <li>Удаление баз данных из поисковых систем</li>
-          <li>Личный куратор</li>
-        </ul>
+        <div class="service-item">
+          <h3>Конфиденциальность и безопасность:</h3>
+          <ul>
+            <li>Защита личных данных и анонимность</li>
+            <li>Удаление баз данных из поисковых систем</li>
+            <li>Личный куратор</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
-
-  <!-- Requirements Section -->
-  <section id="requirements" class="section">
-    <div class="container">
-      <h2>Что требуется от вас</h2>
-      <p>Только ваше желание развиваться и зарабатывать. Мы поможем с остальным!</p>
+<!-- Requirements Section -->
+<section id="requirements" class="section">
+  <div class="container">
+    <h2>ТРЕБОВАНИЯ</h2>
+    <div class="requirements-block">
+      <div class="requirement">
+        <h3>Тебе от 18 лет</h3>
+        <p>Наша студия сотрудничает с лицами достигшими возраста совершеннолетия</p>
+      </div>
+      <div class="requirement">
+        <h3>Ответственность</h3>
+        <p>Ты ответственна и целеустремленна</p>
+      </div>
+      <div class="requirement">
+        <h3>Отсутсвие зависимостей</h3>
+        <p>Наша студия не терпит котиков</p>
+      </div>
     </div>
-  </section>
+  </div>
 
-  <!-- Vacancies Section -->
-  <section id="vacancies" class="section">
-    <div class="container">
-      <h2>Вакансии</h2>
-      <p>Мы всегда открыты для новых талантливых моделей. Запишитесь на консультацию, и мы обсудим возможности для вас!</p>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="section">
-    <div class="container">
-      <h2>Свяжитесь с нами</h2>
-      <form action="#" method="POST">
-        <label for="name">Ваше имя:</label>
-        <input type="text" id="name" name="name" required>
-
-        <label for="email">Ваш email:</label>
-        <input type="email" id="email" name="email" required>
-
-        <label for="message">Ваше сообщение:</label>
-        <textarea id="message" name="message" rows="4" required></textarea>
-
-        <button type="submit">Отправить</button>
-      </form>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <p>&copy; 2025 Lunera Studio. Все права защищены.</p>
-    </div>
-  </footer>
-</body>
-</html>
-
+<!-- Consultation Section (replacing previous CTA) -->
+<section id="contact" class="section">
+  <div class="container">
+    <h2>КОНСУЛЬТАЦИЯ</h2>
+    <a href="https://t.me/ttttsypochka" class="contact-widget" target="_blank">Telegram</a>
+  </div>
+</section>
+<!-- Relocation Section -->
+<section id="move" class="section">
+  <div class="container">
+    <h2>Переезд</h2>
+    <p>Твой комфортный переезд в наших руках. 
+      От покупки билетов до трансфера прямиком в твоё жилье.</p>
+    <p>Оформление ВНЖ в крайние сроки</p>
+  </div>
+</section>
