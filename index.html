@@ -1,54 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Webcam Studio</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lunera Studio</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>Webcam Studio</h1>
-            <nav>
-                <a href="#about">About</a>
-                <a href="#services">Services</a>
-                <a href="#contact">Contact</a>
-            </nav>
-        </div>
-    </header>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="logo">Lunera Studio</div>
+      <nav class="nav">
+        <ul>
+          <li><a href="#about">О нас</a></li>
+          <li><a href="#services">Условия</a></li>
+          <li><a href="#requirements">Требования</a></li>
+          <li><a href="#contact">Консультация</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-    <section id="about">
-        <div class="container">
-            <h2>About Us</h2>
-            <p>Welcome to Webcam Studio, your trusted partner for professional webcam broadcasting. Our studio provides cutting-edge equipment, flexible schedules, and a secure environment to help you thrive.</p>
-        </div>
-    </section>
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Добро пожаловать в Lunera Studio</h1>
+    <p>Роскошь. Комфорт. Возможности.</p>
+    <a href="#contact" class="cta-button">Записаться на консультацию</a>
+  </section>
 
-    <section id="services">
-        <div class="container">
-            <h2>Our Services</h2>
-            <div class="services-list">
-                <div class="service-item">
-                    <h3>Professional Equipment</h3>
-                    <p>High-quality cameras, lighting, and audio setups.</p>
-                </div>
-                <div class="service-item">
-                    <h3>Private Studio Spaces</h3>
-                    <p>Comfortable and discreet rooms for your sessions.</p>
-                </div>
-                <div class="service-item">
-                    <h3>Technical Support</h3>
-                    <p>24/7 assistance to ensure smooth operations.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- About Section -->
+  <section id="about" class="section">
+    <div class="container">
+      <h2>О нас</h2>
+      <p>Lunera Studio — это идеальное место для начинающих и опытных моделей. Мы предоставляем все необходимое оборудование, создаем комфортные условия и помогаем раскрыть ваш потенциал.</p>
+    </div>
+  </section>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Webcam Studio. All rights reserved.</p>
-        </div>
-    </footer>
+  <!-- Services Section -->
+  <section id="services" class="section">
+    <div class="container">
+      <h2>Наши условия</h2>
+      <ul>
+        <li>Высокий процент заработка — до 70%.</li>
+        <li>Комфортабельные студии с профессиональным оборудованием.</li>
+        <li>Обучение и поддержка от команды экспертов.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Requirements Section -->
+  <section id="requirements" class="section">
+    <div class="container">
+      <h2>Что требуется от вас</h2>
+      <p>Только ваше желание развиваться и зарабатывать. Мы поможем с остальным!</p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section">
+    <div class="container">
+      <h2>Свяжитесь с нами</h2>
+      <form action="#" method="POST">
+        <label for="name">Ваше имя:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Ваш email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="message">Ваше сообщение:</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+
+        <button type="submit">Отправить</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Lunera Studio. Все права защищены.</p>
+    </div>
+  </footer>
 </body>
 </html>
