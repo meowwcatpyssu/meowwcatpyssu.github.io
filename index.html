@@ -29,7 +29,7 @@
 
         .studio-info {
             font-size: 18px;
-            color: #ad9e6c; /* softer pastel yellow */
+            color: #ad9e6c;
             margin-top: 15px;
         }
 
@@ -48,7 +48,7 @@
 
         .navbar a:hover {
             text-decoration: underline;
-            color: #f3e1a4; /* softer pastel yellow */
+            color: #f3e1a4;
         }
 
         .section {
@@ -61,7 +61,7 @@
             font-size: 36px;
             margin-bottom: 20px;
             font-family: 'Playfair Display', serif;
-            color: #f3e1a4; /* softer pastel yellow */
+            color: #f3e1a4;
         }
 
         .section p {
@@ -91,7 +91,7 @@
             font-size: 26px;
             margin-bottom: 12px;
             font-family: 'Playfair Display', serif;
-            color: #f3e1a4; /* softer pastel yellow */
+            color: #f3e1a4;
         }
 
         .advantage p {
@@ -111,7 +111,7 @@
         .requirements h3, .relocation h4 {
             font-size: 24px;
             margin-bottom: 20px;
-            color: #f3e1a4; /* softer pastel yellow */
+            color: #f3e1a4;
         }
 
         .requirements p, .relocation p {
@@ -141,14 +141,15 @@
             padding: 20px;
             border-radius: 12px;
             text-align: center;
-            width: 20%;
+            width: 90%;
             margin: 15px;
+            max-width: 400px;
         }
 
         .relocation-item h5 {
             font-size: 22px;
             margin-bottom: 12px;
-            color: #f3e1a4; /* softer pastel yellow */
+            color: #f3e1a4;
         }
 
         .relocation-item p {
@@ -158,16 +159,16 @@
 
         .requirements-container {
             display: flex;
-            justify-content: center;
-            gap: 40px;
-            margin-top: 20px;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
         }
 
         .requirements-container p {
             font-size: 18px;
+            text-align: center;
         }
 
-        /* Telegram Button */
         a.button-telegram {
             display: inline-block;
             padding: 15px 25px;
@@ -181,11 +182,58 @@
         }
 
         a.button-telegram:hover {
-            background-color: #f3e1a4; /* softer pastel yellow */
+            background-color: #f3e1a4;
         }
 
         a.button-telegram:active {
             background-color: #003f75;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 36px;
+            }
+
+            .navbar a {
+                font-size: 16px;
+                margin: 0 10px;
+            }
+
+            .section h2 {
+                font-size: 28px;
+            }
+
+            .section p {
+                font-size: 16px;
+                padding: 0 10px;
+            }
+
+            .advantages {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .advantage h3 {
+                font-size: 20px;
+            }
+
+            .advantage p {
+                font-size: 14px;
+            }
+
+            footer {
+                padding: 20px;
+                font-size: 14px;
+            }
+
+            .relocation-item {
+                width: 100%;
+            }
+
+            a.button-telegram {
+                font-size: 18px;
+                padding: 12px 20px;
+            }
         }
     </style>
 </head>
@@ -272,9 +320,9 @@
     <section id="requirements" class="requirements">
         <h3>Ожидания от вас</h3>
         <div class="requirements-container">
-            <p> Тебе от 18 лет</p>
-            <p> Ты ответственна и целеустремленна</p>
-            <p> Без зависимостей</p>
+            <p>Тебе от 18 лет</p>
+            <p>Ты ответственна и целеустремленна</p>
+            <p>Без зависимостей</p>
         </div>
     </section>
 
