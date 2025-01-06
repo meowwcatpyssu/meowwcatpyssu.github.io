@@ -16,33 +16,43 @@
 
         .header {
             background: linear-gradient(45deg, #b48d43, #1c1c1c);
-            padding: 40px;
-            text-align: center;
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .header h1 {
-            font-size: 48px;
+            font-size: 36px;
             color: white;
             margin: 0;
             font-family: 'Playfair Display', serif;
+            text-align: left;
+            flex: 1;
         }
 
         .studio-info {
             font-size: 18px;
             color: #ad9e6c;
-            margin-top: 15px;
+            margin-top: 5px;
+            text-align: left;
+            flex: 1;
         }
 
         .navbar {
-            text-align: center;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
             margin-top: 15px;
+            text-align: center;
         }
 
         .navbar a {
             color: white;
             text-decoration: none;
-            margin: 0 15px;
-            font-size: 18px;
+            font-size: 16px;
             font-family: 'Lora', serif;
         }
 
@@ -141,9 +151,8 @@
             padding: 20px;
             border-radius: 12px;
             text-align: center;
-            width: 90%;
+            width: 20%;
             margin: 15px;
-            max-width: 400px;
         }
 
         .relocation-item h5 {
@@ -159,16 +168,16 @@
 
         .requirements-container {
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 20px;
         }
 
         .requirements-container p {
             font-size: 18px;
-            text-align: center;
         }
 
+        /* Telegram Button */
         a.button-telegram {
             display: inline-block;
             padding: 15px 25px;
@@ -189,50 +198,44 @@
             background-color: #003f75;
         }
 
+        /* Responsive adjustments */
         @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .navbar {
+                justify-content: center;
+                gap: 10px;
+                flex-wrap: wrap;
+            }
+
             .header h1 {
-                font-size: 36px;
+                font-size: 28px;
+                text-align: center;
+            }
+
+            .studio-info {
+                font-size: 16px;
             }
 
             .navbar a {
-                font-size: 16px;
-                margin: 0 10px;
-            }
-
-            .section h2 {
-                font-size: 28px;
-            }
-
-            .section p {
-                font-size: 16px;
-                padding: 0 10px;
+                font-size: 14px;
             }
 
             .advantages {
-                grid-template-columns: 1fr;
-                gap: 15px;
-            }
-
-            .advantage h3 {
-                font-size: 20px;
-            }
-
-            .advantage p {
-                font-size: 14px;
-            }
-
-            footer {
-                padding: 20px;
-                font-size: 14px;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             }
 
             .relocation-item {
                 width: 100%;
+                margin-bottom: 15px;
             }
 
-            a.button-telegram {
-                font-size: 18px;
-                padding: 12px 20px;
+            .requirements-container {
+                flex-direction: column;
+                gap: 15px;
             }
         }
     </style>
@@ -320,9 +323,9 @@
     <section id="requirements" class="requirements">
         <h3>Ожидания от вас</h3>
         <div class="requirements-container">
-            <p>Тебе от 18 лет</p>
-            <p>Ты ответственна и целеустремленна</p>
-            <p>Без зависимостей</p>
+            <p> Тебе от 18 лет</p>
+            <p> Ты ответственна и целеустремленна</p>
+            <p> Без зависимостей</p>
         </div>
     </section>
 
