@@ -4,365 +4,382 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lunera Studio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lora:wght@400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Lora', serif;
-            background-color: #0a0a0a;
-            color: #ffffff;
-            margin: 0;
-            padding: 0;
+        :root {
+            --primary-color: #0E1E32;
+            --secondary-color: #1A2B4A;
+            --accent-color: #d5ab5e;
+            --text-color: #E0E6ED;
         }
 
-        .header {
-            background: linear-gradient(45deg, #b48d43, #1c1c1c);
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
             padding: 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--secondary-color);
+            padding: 15px 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
             display: flex;
-            flex-wrap: wrap;
             justify-content: space-between;
             align-items: center;
         }
 
-        .header h1 {
-            font-size: 36px;
-            color: white;
-            margin: 0;
-            font-family: 'Playfair Display', serif;
-            text-align: left;
-            flex: 1;
-        }
-
-        .studio-info {
-            font-size: 18px;
-            color: #ad9e6c;
-            margin-top: 5px;
-            text-align: left;
-            flex: 1;
-        }
-
-        .navbar {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-top: 15px;
-            text-align: center;
-        }
-
-        .navbar a {
-            color: white;
-            text-decoration: none;
-            font-size: 16px;
-            font-family: 'Lora', serif;
-        }
-
-        .navbar a:hover {
-            text-decoration: underline;
-            color: #f3e1a4;
-        }
-
-        .section {
-            padding: 50px 20px;
-            text-align: center;
-            background-color: #121212;
-        }
-
-        .section h2 {
-            font-size: 36px;
-            margin-bottom: 20px;
-            font-family: 'Playfair Display', serif;
-            color: #f3e1a4;
-        }
-
-        .section p {
-            font-size: 18px;
-            line-height: 1.8;
-            max-width: 900px;
-            margin: 0 auto;
-            color: #ffffff;
-        }
-
-        .advantages {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin-top: 40px;
-        }
-
-        .advantage {
-            background-color: #2c2c2c;
-            padding: 30px;
-            border-radius: 12px;
-            text-align: center;
-            color: #ffffff;
-        }
-
-        .advantage h3 {
-            font-size: 26px;
-            margin-bottom: 12px;
-            font-family: 'Playfair Display', serif;
-            color: #f3e1a4;
-        }
-
-        .advantage p {
-            font-size: 16px;
-            line-height: 1.6;
-        }
-
-        .requirements, .relocation {
-            background-color: #2c2c2c;
-            padding: 40px;
-            margin-top: 40px;
-            border-radius: 12px;
-            text-align: center;
-            color: #ffffff;
-        }
-
-        .requirements h3, .relocation h4 {
+        .logo {
+            font-family: 'Orbitron', sans-serif;
             font-size: 24px;
-            margin-bottom: 20px;
-            color: #f3e1a4;
+            font-weight: 700;
+            color: var(--accent-color);
         }
 
-        .requirements p, .relocation p {
-            font-size: 18px;
-            line-height: 1.8;
-        }
-
-        footer {
-            background-color: #1e1e1e;
-            color: #ffffff;
-            text-align: center;
-            padding: 30px;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-        }
-
-        .relocation-container {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-            flex-wrap: wrap;
-        }
-
-        .relocation-item {
-            background-color: #2c2c2c;
-            padding: 20px;
-            border-radius: 12px;
-            text-align: center;
-            width: 20%;
-            margin: 15px;
-        }
-
-        .relocation-item h5 {
-            font-size: 22px;
-            margin-bottom: 12px;
-            color: #f3e1a4;
-        }
-
-        .relocation-item p {
-            font-size: 16px;
-            line-height: 1.6;
-        }
-
-        .requirements-container {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            margin-top: 20px;
-        }
-
-        .requirements-container p {
-            font-size: 18px;
-        }
-
-        /* Telegram Button */
-        a.button-telegram {
-            display: inline-block;
-            padding: 15px 25px;
-            background-color: #b48d43;
-            color: #ffffff;
-            font-size: 20px;
+        nav a {
+            color: var(--text-color);
             text-decoration: none;
-            border-radius: 12px;
-            transition: background-color 0.3s ease;
+            margin-left: 20px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--primary-color), #0A1422);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 10;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 4rem;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 0;
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: 'Orbitron', sans-serif;
+            color: var(--accent-color);
+            margin-bottom: 50px;
+        }
+
+        /* About Us */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        /* Conditions */
+        .conditions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .condition-card {
+            background-color: var(--secondary-color);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .condition-card:hover {
+            transform: translateY(-10px);
+        }
+
+        /* Consultation */
+        .consultation {
             text-align: center;
         }
 
-        a.button-telegram:hover {
-            background-color: #f3e1a4;
+        .telegram-button {
+            display: inline-block;
+            background-color: #229fd998;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
         }
 
-        a.button-telegram:active {
-            background-color: #003f75;
+        .telegram-button:hover {
+            background-color: #1e7cc34c;
         }
 
-        /* Responsive adjustments */
+        /* Responsive Design */
         @media (max-width: 768px) {
-            .header {
+            .header-content {
                 flex-direction: column;
                 text-align: center;
             }
 
-            .navbar {
-                justify-content: center;
-                gap: 10px;
-                flex-wrap: wrap;
+            nav {
+                margin-top: 15px;
             }
 
-            .header h1 {
-                font-size: 28px;
-                text-align: center;
+            .hero h1 {
+                font-size: 2.5rem;
             }
 
-            .studio-info {
-                font-size: 16px;
+            .hero p {
+                font-size: 1.2rem;
             }
 
-            .navbar a {
-                font-size: 14px;
+            .about-content,
+            .conditions-grid {
+                grid-template-columns: 1fr;
             }
+        }
 
-            .advantages {
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            }
+        /* Space Background Animation */
+        .space-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
 
-            .relocation-item {
-                width: 100%;
-                margin-bottom: 15px;
-            }
+        .star {
+            position: absolute;
+            background-color: white;
+            border-radius: 50%;
+            animation: twinkle 2s infinite alternate;
+        }
 
-            .requirements-container {
-                flex-direction: column;
-                gap: 15px;
-            }
+        @keyframes twinkle {
+            0% { opacity: 0.3; }
+            100% { opacity: 1; }
         }
     </style>
 </head>
 <body>
-
-    <!-- Header Section -->
-    <header class="header">
-        <h1>Lunera Studio</h1>
-        <div class="studio-info">
-            <p>Заработок от $3000 | Процент 50-80%</p>
+    <header>
+        <div class="container header-content">
+            <div class="logo">Lunera Studio</div>
+            <nav>
+                <a href="#about">О нас</a>
+                <a href="#conditions">Условия</a>
+                <a href="#expectations">Наши ожидания</a>
+                <a href="#relocation">Переезд</a>
+                <a href="#consultation">Консультация</a>
+            </nav>
         </div>
-        <nav class="navbar">
-            <a href="#history">Наша История</a>
-            <a href="#advantages">Условия</a>
-            <a href="#requirements">Ожидания от вас</a>
-            <a href="#relocation">Планируем твой переезд</a>
-            <a href="#contacts">Консультация</a>
-        </nav>
-        <a href="https://t.me/ttttsypochka" target="_blank" class="button-telegram">Консультация</a>
     </header>
 
-    <!-- History Section -->
-    <section id="history" class="section">
-        <h2>НАША ИСТОРИЯ</h2>
-        <p>Идея создания Lunera Studio зародилась из личного опыта и стремления поделиться этим с людьми. Наша команда прошла этот путь сама — от первых шагов в стримах до глубокого осознания того, как важно создавать условия, где комфорт, развитие и желание идут рука об руку.</p>
-        <p>Мы заметили, что многие модели сталкиваются с трудностями в поиске поддержки, построении личного бренда и нехваткой времени для раскрытия своего потенциала. Это стало для нас стимулом создать студию, которая не просто предоставляет работу, но и помогает моделям строить карьеру, оставаться уверенными в себе, достигать финансовой независимости и при этом находить время для себя.</p>
-        <p>Lunera Studio — это больше, чем студия. Это место, где каждая модель становится частью команды, работающей на общий успех. Мы понимаем, что создание личного бренда — это ключ к построению доверия и уникальности в индустрии. Поэтому мы предлагаем полную поддержку: от разработки вашего стиля и профессиональных портфолио до построения стратегии продвижения.</p>
-        <p>Мы объединили современный минимализм, высококачественное оборудование и глубоко продуманную систему работы. Наша студия, расположенная в Белграде, Сербия, стала пространством, где технологии и стиль помогают моделям раскрывать себя, не забывая о важности ментального комфорта и самореализации.</p>
-        <p>Сегодня Lunera Studio — это результат наших усилий, смелости и желания изменить правила игры. Мы предлагаем не только лучшие условия для работы, но и возможность стать кем-то большим, чем просто модель. Строить личный бренд, раскрывать свои сильные стороны и уверенно двигаться вперёд.</p>
+    <section class="hero">
+        <div class="space-bg" id="space-background"></div>
+        <div class="container hero-content">
+            <h1>Lunera Studio</h1>
+            <p>Заработок от 3000$ | Процент 50-80%</p>
+            <a href="#consultation" class="cta-button">Получить консультацию</a>
+        </div>
     </section>
 
-    <!-- Advantages Section -->
-    <section id="advantages" class="section">
-        <h2>Условия</h2>
-        <div class="advantages">
-            <div class="advantage">
+    <section id="about" class="container">
+        <h2 class="section-title">О нас</h2>
+        <div class="about-content">
+            <div>
+                <p>Идея создания Lunera Studio зародилась из личного опыта и стремления поделиться этим с людьми. Наша команда прошла этот путь сама — от первых шагов в стримах до глубокого осознания того, как важно создавать условия, где комфорт, развитие и желание идут рука об руку.</p>
+                <br>
+                <p>Мы заметили, что многие модели сталкиваются с трудностями в поиске поддержки, построении личного бренда и нехваткой времени для раскрытия своего потенциала. Это стало для нас стимулом создать студию, которая не просто предоставляет работу, но и помогает моделям строить карьеру, оставаться уверенными в себе, достигать финансовой независимости и при этом находить время для себя.</p>
+            </div>
+            <div>
+                <p>Lunera Studio — это больше, чем студия. Это место, где каждая модель становится частью команды, работающей на общий успех. Мы понимаем, что создание личного бренда — это ключ к построению доверия и уникальности в индустрии. Поэтому мы предлагаем полную поддержку: от разработки вашего стиля и профессиональных портфолио до построения стратегии продвижения.</p>
+                <br>
+                <p>Мы объединили современный минимализм, высококачественное оборудование и глубоко продуманную систему работы. Наша студия, расположенная в Белграде, Сербия, стала пространством, где технологии и стиль помогают моделям раскрывать себя, не забывая о важности ментального комфорта и самореализации.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="conditions" class="container">
+        <h2 class="section-title">Условия</h2>
+        <div class="conditions-grid">
+            <div class="condition-card">
                 <h3>Гибкий процент</h3>
                 <p>Ты сможешь повысить свой процент с 50% уже с первых смен.</p>
             </div>
-            <div class="advantage">
+            <div class="condition-card">
                 <h3>Выбор смены</h3>
                 <p>Гибкое расписание: смены начинаются от 6 часов днем и ночью.</p>
             </div>
-            <div class="advantage">
+            <div class="condition-card">
                 <h3>Комфортные условия</h3>
                 <p>Профессиональное оборудование и уютные, просторные стримерские комнаты.</p>
             </div>
-            <div class="advantage">
+            <div class="condition-card">
                 <h3>Техническая поддержка</h3>
                 <p>Техническая поддержка доступна 24/7 для решения любых вопросов.</p>
             </div>
-            <div class="advantage">
+            <div class="condition-card">
                 <h3>Психологическая поддержка</h3>
                 <p>Круглосуточная психологическая поддержка от опытных специалистов.</p>
             </div>
-            <div class="advantage">
+            <div class="condition-card">
                 <h3>Поддержка здоровья</h3>
                 <p>Периодические визиты к дерматологу и косметологу, а также регулярные спа-процедуры раз в три месяца.</p>
             </div>
-            <div class="advantage">
+            <div class="condition-card">
                 <h3>Обучение</h3>
                 <p>Обучение от основ до мастерства, эксклюзивные мастер-классы и консультации с экспертами.</p>
             </div>
-            <div class="advantage">
+            <div class="condition-card">
                 <h3>Лояльность и долгосрочные отношения</h3>
                 <p>Получение бонусов в виде повышенных процентов и финансовых выплат в выходные.</p>
             </div>
-            <div class="advantage">
+            <div class="condition-card">
                 <h3>Конфиденциальность и безопасность</h3>
                 <p>Защита твоих личных данных и анонимность, включая удаление информации из поисковиков.</p>
             </div>
-            <div class="advantage">
+            <div class="condition-card">
                 <h3>Личный куратор</h3>
                 <p>Мы обеспечим тебя личным куратором, который будет помогать на протяжении всего твоего пути с нами.</p>
             </div>
-            <div class="advantage">
+            <div class="condition-card">
                 <h3>Ведение соцсетей</h3>
                 <p>Мы полностью берем на себя ведение твоих соцсетей под твоим контролем: OnlyFans, Fansly, Twitter, Instagram, Reddit.</p>
             </div>
         </div>
     </section>
 
-    <!-- Requirements Section -->
-    <section id="requirements" class="requirements">
-        <h3>Ожидания от вас</h3>
-        <div class="requirements-container">
-            <p> Тебе от 18 лет</p>
-            <p> Ты ответственна и целеустремленна</p>
-            <p> Без зависимостей</p>
+    <section id="expectations" class="container">
+        <h2 class="section-title">Наши ожидания</h2>
+        <div class="conditions-grid">
+            <div class="condition-card">
+                <h3>Возраст</h3>
+                <p>Тебе от 18 лет</p>
+            </div>
+            <div class="condition-card">
+                <h3>Ответственность</h3>
+                <p>Ты ответственна и целеустремленна</p>
+            </div>
+            <div class="condition-card">
+                <h3>Образ жизни</h3>
+                <p>Без зависимостей</p>
+            </div>
         </div>
     </section>
 
-    <!-- Relocation Section -->
-    <section id="relocation" class="relocation">
-        <h4>Планируем твой переезд</h4>
-        <div class="relocation-container">
-            <div class="relocation-item">
-                <h5>Комфортный переезд</h5>
+    <section id="relocation" class="container">
+        <h2 class="section-title">Планируем твой переезд</h2>
+        <div class="conditions-grid">
+            <div class="condition-card">
+                <h3>Комфортный переезд</h3>
                 <p>От оформления билетов до комфортного трансфера — мы позаботимся о каждом шаге твоего переезда.</p>
             </div>
-            <div class="relocation-item">
-                <h5>Оформление ВНЖ</h5>
-                <p>Мы ускорим процесс получения ВНЖ, чтобы ты могла быстро приступить к работе на таких площадках как OnlyFans и Fansly.</p>
-            </div>
-            <div class="relocation-item">
-                <h5>Отсутствие налогов</h5>
-                <p>Трудоустройство не повлечет за собой налоговых обязательств для тебя.</p>
-            </div>
-            <div class="relocation-item">
-                <h5>Жилье на первые 3 месяца</h5>
+            <div class="condition-card">
+                <h3>Жилье на первые 3 месяца</h3>
                 <p>Предоставим комфортное жилье на 3 месяца, чтобы ты могла сосредоточиться на работе.</p>
             </div>
-            <div class="relocation-item">
-                <h5>Приятные условия для жизни</h5>
+            <div class="condition-card">
+                <h3>Оформление ВНЖ</h3>
+                <p>Мы ускорим процесс получения ВНЖ, чтобы ты могла быстро приступить к работе на таких площадках как OnlyFans и Fansly.</p>
+            </div>
+            <div class="condition-card">
+                <h3>Отсутствие налогов</h3>
+                <p>Трудоустройство не повлечет за собой налоговых обязательств для тебя.</p>
+            </div>
+            <div class="condition-card">
+                <h3>Приятные условия для жизни</h3>
                 <p>В одном из лучших городов Европы ты сможешь сочетать комфортную жизнь с отличными условиями для работы и отдыха</p>
             </div>
         </div>
     </section>
 
-    <!-- Contacts Section -->
-    <section id="contacts" class="contacts">
-        <h3 style="text-align: center;">СВЯЗЬ С НАМИ</h3>
-        <div class="contacts-container" style="text-align: center;">
-            <p>Телеграм: <a href="https://t.me/ttttsypochka" target="_blank" class="button-telegram">Консультация</a></p>
-        </div>
+    <section id="consultation" class="container consultation">
+        <h2 class="section-title">Консультация</h2>
+        <a href="https://t.me/lunerastudio" target="_blank" class="telegram-button">Написать в Telegram</a>
     </section>
 
+    <script>
+        // Space Background Animation
+        function createStars() {
+            const spaceBg = document.getElementById('space-background');
+            const starCount = window.innerWidth / 10;
+
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
+                star.style.width = `${Math.random() * 3}px`;
+                star.style.height = star.style.width;
+                star.style.left = `${Math.random() * 100}%`;
+                star.style.top = `${Math.random() * 100}%`;
+                star.style.animationDelay = `${Math.random() * 2}s`;
+                spaceBg.appendChild(star);
+            }
+        }
+
+        createStars();
+        window.addEventListener('resize', createStars);
+    </script>
 </body>
 </html>
