@@ -6,25 +6,25 @@
     <title>Lunera Studio</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary-white: #ffffff;
-            --secondary-white: #f4f4f4;
-            --accent-color: #e0e0ff;
-            --text-color: #333;
-            --space-background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-        }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        :root {
+            --primary-color: #FF6B9E;
+            --secondary-color: #4A4A4A;
+            --background-color: #FFFFFF;
+            --text-color: #333333;
+        }
+
         body {
             font-family: 'Montserrat', sans-serif;
-            background: var(--space-background);
-            color: var(--text-color);
             line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            overflow-x: hidden;
         }
 
         .container {
@@ -35,25 +35,25 @@
 
         /* Header Styles */
         header {
-            background-color: rgba(255, 255, 255, 0.9);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px 0;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
         .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 0;
         }
 
         .logo {
             font-size: 24px;
             font-weight: 700;
-            color: #333;
         }
 
         .nav-menu {
@@ -62,209 +62,426 @@
         }
 
         .nav-menu a {
+            color: white;
             text-decoration: none;
-            color: #333;
-            font-weight: 500;
             transition: color 0.3s ease;
+            animation: blink 2s infinite;
+            transition: all 0.3s ease;
         }
 
         .nav-menu a:hover {
-            color: #6a6aff;
+            color: var(--secondary-color);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .bar {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 3px 0;
+            transition: 0.4s;
         }
 
         /* Main Page Styles */
         .main-page {
+            padding-top: 100px;
             min-height: 100vh;
             display: flex;
             align-items: center;
-            justify-content: center;
+            background: linear-gradient(135deg, var(--primary-color) 0%, #FF9A9E 100%);
+            color: white;
             text-align: center;
-            background: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" opacity="0.1"%3E%3Cdefs%3E%3Cpattern id="pattern" width="50" height="50" patternUnits="userSpaceOnUse"%3E%3Ccircle cx="25" cy="25" r="2" fill="%23c3cfe2"/%3E%3C/pattern%3E%3C/defs%3E%3Crect width="100%" height="100%" fill="url(%23pattern)"/%3E%3C/svg%3E');
         }
 
         .main-content {
-            background-color: rgba(255, 255, 255, 0.9);
-            padding: 50px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             max-width: 800px;
+            margin: 0 auto;
         }
 
         .main-title {
-            font-size: 36px;
+            font-size: 48px;
             margin-bottom: 20px;
-            color: #333;
+            font-weight: 700;
         }
 
         .main-subtitle {
             font-size: 24px;
             margin-bottom: 30px;
-            color: #666;
         }
 
         .cta-button {
             display: inline-block;
-            background-color: #6a6aff;
-            color: white;
-            padding: 12px 25px;
+            background-color: white;
+            color: var(--primary-color);
+            padding: 15px 30px;
             text-decoration: none;
-            border-radius: 25px;
+            border-radius: 50px;
             font-weight: 600;
-            transition: background-color 0.3s ease;
+            transition: transform 0.3s ease;
+            animation: pulse 1.5s infinite;
+            transition: all 0.3s ease;
         }
 
         .cta-button:hover {
-            background-color: #5050ff;
+            transform: scale(1.05);
         }
 
-        /* Section Styles */
-        .section {
+        /* About Us Styles */
+        .about-us, .conditions, .expectations, .relocation {
             padding: 80px 0;
-            background-color: var(--primary-white);
+            background-color: #f9f9f9;
         }
 
         .section-title {
             text-align: center;
-            margin-bottom: 50px;
-            font-size: 32px;
-            color: #333;
+            font-size: 36px;
+            margin-bottom: 40px;
+            color: var(--primary-color);
+            animation: titleBlink 3s infinite;
+            transition: all 0.3s ease;
         }
 
-        .conditions-grid {
+        .about-text {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        /* Conditions and Expectations */
+        .conditions-grid, .expectations-grid, .relocation-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
+            gap: 20px;
         }
 
-        .condition-card {
-            background-color: var(--secondary-white);
-            padding: 25px;
+        .condition-item, .expectation-item, .relocation-item {
+            background-color: white;
+            padding: 20px;
             border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             text-align: center;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
         }
 
-        .condition-card:hover {
+        .condition-item:hover, .expectation-item:hover, .relocation-item:hover {
             transform: translateY(-10px);
         }
 
-        .condition-icon {
-            font-size: 48px;
-            margin-bottom: 15px;
-            color: #6a6aff;
+        .condition-item h3, .expectation-item h3, .relocation-item h3 {
+            margin-bottom: 10px;
+            color: var(--primary-color);
         }
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .header-content {
+        .emoji {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        /* Fallback for emoji */
+        .emoji::before {
+            content: attr(data-emoji);
+            font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+        }
+
+        /* Consultation */
+        .consultation {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 60px 0;
+        }
+
+        .consultation-button {
+            display: inline-block;
+            background-color: white;
+            color: var(--primary-color);
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: transform 0.3s ease;
+            animation: pulse 1.5s infinite;
+            transition: all 0.3s ease;
+        }
+
+        .consultation-button:hover {
+            transform: scale(1.05);
+        }
+
+        /* Responsive Styles */
+        @media screen and (max-width: 768px) {
+            .nav-menu {
+                display: none;
                 flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: var(--primary-color);
+                padding: 20px;
             }
 
-            .nav-menu {
-                margin-top: 15px;
+            .mobile-menu-toggle {
+                display: flex;
             }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .main-title {
+                font-size: 32px;
+            }
+
+            .main-subtitle {
+                font-size: 18px;
+            }
+        }
+
+        /* Preloader Styles */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--primary-color);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            color: white;
+            transition: opacity 0.5s ease;
+        }
+
+        .preloader-content {
+            text-align: center;
+        }
+
+        #loading-percentage {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        #loading-bar {
+            width: 300px;
+            height: 10px;
+            background-color: rgba(255,255,255,0.3);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        #loading-bar-fill {
+            width: 0;
+            height: 100%;
+            background-color: white;
+            transition: width 0.5s ease;
+        }
+
+        .fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* Cursor Tracker */
+        #cursor-tracker {
+            position: fixed;
+            width: 30px;
+            height: 30px;
+            border: 2px solid var(--primary-color);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.1s ease;
+            mix-blend-mode: difference;
+        }
+
+        /* Audio Player */
+        #audio-player {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        #audio-player button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            margin: 0 10px;
+            transition: transform 0.3s ease;
+        }
+
+        #audio-player button:hover {
+            transform: scale(1.2);
+        }
+
+        #volume-control {
+            width: 100px;
+            margin-left: 10px;
+        }
+
+        /* Анимация мигания для кнопок в шапке */
+        @keyframes blink {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(1.05); }
+        }
+
+        /* Анимация мигания для заголовков */
+        @keyframes titleBlink {
+            0%, 100% { 
+                color: var(--primary-color); 
+                transform: scale(1);
+            }
+            50% { 
+                color: #FF9A9E; 
+                transform: scale(1.05);
+            }
+        }
+
+        /* Дополнительная анимация для кнопок */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">Lunera Studio</div>
-                <nav class="nav-menu">
-                    <a href="#about">О нас</a>
-                    <a href="#conditions">Условия</a>
-                    <a href="#expectations">Ожидания</a>
-                    <a href="#relocation">Переезд</a>
-                    <a href="#consultation">Консультация</a>
-                </nav>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="preloader-content">
+            <div id="loading-percentage">0%</div>
+            <div id="loading-bar">
+                <div id="loading-bar-fill"></div>
             </div>
+        </div>
+    </div>
+
+    <!-- Cursor Tracker -->
+    <div id="cursor-tracker"></div>
+
+    <!-- Audio Player -->
+    <div id="audio-player">
+        <button id="play-pause">▶️</button>
+        <input type="range" id="volume-control" min="0" max="1" step="0.1" value="0.5">
+    </div>
+
+    <header>
+        <div class="container header-content">
+            <div class="logo">Lunera Studio</div>
+            <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <nav class="nav-menu">
+                <a href="#home">Главная</a>
+                <a href="#about">О нас</a>
+                <a href="#conditions">Условия</a>
+                <a href="#expectations">Ожидания</a>
+                <a href="#relocation">Переезд</a>
+                <a href="#consultation">Консультация</a>
+            </nav>
         </div>
     </header>
 
-    <!-- Main Page -->
-    <section class="main-page">
-        <div class="container">
-            <div class="main-content">
-                <h1 class="main-title">Lunera Studio</h1>
-                <h2 class="main-subtitle">Заработок от 3000$ | Процент 50-80%</h2>
-                <a href="https://t.me/lunerastudio" class="cta-button" target="_blank">Получить консультацию</a>
-            </div>
+    <section id="home" class="main-page">
+        <div class="container main-content">
+            <h1 class="main-title">Lunera Studio</h1>
+            <p class="main-subtitle">Заработок от 3000$ | Процент 50-80%</p>
+            <a href="#consultation" class="cta-button">Получить консультацию</a>
         </div>
     </section>
 
-    <!-- About Us Section -->
-    <section id="about" class="section">
+    <section id="about" class="about-us">
         <div class="container">
             <h2 class="section-title">О нас</h2>
-            <div class="about-content">
+            <div class="about-text">
                 <p>Идея создания Lunera Studio зародилась из личного опыта и стремления поделиться этим с людьми. Наша команда прошла этот путь сама — от первых шагов в стримах до глубокого осознания того, как важно создавать условия, где комфорт, развитие и желание идут рука об руку.</p>
+                <br>
                 <p>Мы заметили, что многие модели сталкиваются с трудностями в поиске поддержки, построении личного бренда и нехваткой времени для раскрытия своего потенциала. Это стало для нас стимулом создать студию, которая не просто предоставляет работу, но и помогает моделям строить карьеру, оставаться уверенными в себе, достигать финансовой независимости и при этом находить время для себя.</p>
+                <br>
                 <p>Lunera Studio — это больше, чем студия. Это место, где каждая модель становится частью команды, работающей на общий успех. Мы понимаем, что создание личного бренда — это ключ к построению доверия и уникальности в индустрии. Поэтому мы предлагаем полную поддержку: от разработки вашего стиля и профессиональных портфолио до построения стратегии продвижения.</p>
+                <br>
                 <p>Мы объединили современный минимализм, высококачественное оборудование и глубоко продуманную систему работы. Наша студия, расположенная в Белграде, Сербия, стала пространством, где технологии и стиль помогают моделям раскрывать себя, не забывая о важности ментального комфорта и самореализации.</p>
             </div>
         </div>
     </section>
 
-    <!-- Conditions Section -->
-    <section id="conditions" class="section">
+    <section id="conditions" class="conditions">
         <div class="container">
             <h2 class="section-title">Условия</h2>
             <div class="conditions-grid">
-                <div class="condition-card">
-                    <div class="condition-icon">💰</div>
+                <div class="condition-item">
+                    <div class="emoji">💰</div>
                     <h3>Гибкий процент</h3>
                     <p>Ты сможешь повысить свой процент с 50% уже с первых смен.</p>
                 </div>
-                <div class="condition-card">
-                    <div class="condition-icon">🕒</div>
+                <div class="condition-item">
+                    <div class="emoji">🕒</div>
                     <h3>Выбор смены</h3>
                     <p>Гибкое расписание: смены начинаются от 6 часов днем и ночью.</p>
                 </div>
-                <div class="condition-card">
-                    <div class="condition-icon">📸</div>
+                <div class="condition-item">
+                    <div class="emoji">🏠</div>
                     <h3>Комфортные условия</h3>
                     <p>Профессиональное оборудование и уютные, просторные стримерские комнаты.</p>
                 </div>
-                <div class="condition-card">
-                    <div class="condition-icon">🛠️</div>
+                <div class="condition-item">
+                    <div class="emoji">🛠️</div>
                     <h3>Техническая поддержка</h3>
                     <p>Техническая поддержка доступна 24/7 для решения любых вопросов.</p>
                 </div>
-                <div class="condition-card">
-                    <div class="condition-icon">🤝</div>
+                <div class="condition-item">
+                    <div class="emoji">👩‍⚕️</div>
                     <h3>Психологическая поддержка</h3>
                     <p>Круглосуточная психологическая поддержка от опытных специалистов.</p>
                 </div>
-                <div class="condition-card">
-                    <div class="condition-icon">❤️</div>
+                <div class="condition-item">
+                    <div class="emoji">🏩</div>
                     <h3>Поддержка здоровья</h3>
                     <p>Периодические визиты к дерматологу и косметологу, а также регулярные спа-процедуры раз в три месяца.</p>
                 </div>
-                <div class="condition-card">
-                    <div class="condition-icon">👩🏼‍🎓</div>
+                <div class="condition-item">
+                    <div class="emoji">👩‍🎓</div>
                     <h3>Обучение</h3>
                     <p>Обучение от основ до мастерства, эксклюзивные мастер-классы и консультации с экспертами.</p>
                 </div>
-                <div class="condition-card">
-                    <div class="condition-icon">🌟</div>
+                <div class="condition-item">
+                    <div class="emoji">🌟</div>
                     <h3>Лояльность и долгосрочные отношения</h3>
                     <p>Получение бонусов в виде повышенных процентов и финансовых выплат в выходные.</p>
                 </div>
-                <div class="condition-card">
-                    <div class="condition-icon">🔒</div>
+                <div class="condition-item">
+                    <div class="emoji">🔒</div>
                     <h3>Конфиденциальность и безопасность</h3>
                     <p>Защита твоих личных данных и анонимность, включая удаление информации из поисковиков.</p>
                 </div>
-                <div class="condition-card">
-                    <div class="condition-icon">👥</div>
+                <div class="condition-item">
+                    <div class="emoji">👥</div>
                     <h3>Личный куратор</h3>
                     <p>Мы обеспечим тебя личным куратором, который будет помогать на протяжении всего твоего пути с нами.</p>
                 </div>
-                <div class="condition-card">
-                    <div class="condition-icon">🧑‍💻</div>
+                <div class="condition-item">
+                    <div class="emoji">📸</div>
                     <h3>Ведение соцсетей</h3>
                     <p>Мы полностью берем на себя ведение твоих соцсетей под твоим контролем: OnlyFans, Fansly, Twitter, Instagram, Reddit.</p>
                 </div>
@@ -272,23 +489,22 @@
         </div>
     </section>
 
-    <!-- Expectations Section -->
-    <section id="expectations" class="section">
+    <section id="expectations" class="expectations">
         <div class="container">
             <h2 class="section-title">Наши ожидания</h2>
-            <div class="conditions-grid">
-                <div class="condition-card">
-                    <div class="condition-icon">🎂</div>
+            <div class="expectations-grid">
+                <div class="expectation-item">
+                    <div class="emoji">🎂</div>
                     <h3>Возраст</h3>
                     <p>Тебе от 18 лет</p>
                 </div>
-                <div class="condition-card">
-                    <div class="condition-icon">👱🏻‍♀️</div>
+                <div class="expectation-item">
+                    <div class="emoji">👱‍♀️</div>
                     <h3>Характер</h3>
                     <p>Ты ответственна и целеустремленна</p>
                 </div>
-                <div class="condition-card">
-                    <div class="condition-icon">🚫</div>
+                <div class="expectation-item">
+                    <div class="emoji">🚫</div>
                     <h3>Образ жизни</h3>
                     <p>Без зависимостей</p>
                 </div>
@@ -296,52 +512,91 @@
         </div>
     </section>
 
-    <!-- Relocation Section -->
-    <section id="relocation" class="section">
+    <section id="relocation" class="relocation">
         <div class="container">
             <h2 class="section-title">Переезд</h2>
-            <div class="conditions-grid">
-                <div class="condition-card">
-                    <div class="condition-icon">✈️</div>
+            <div class="relocation-grid">
+                <div class="relocation-item">
+                    <div class="emoji">✈️</div>
                     <h3>Комфортный переезд</h3>
                     <p>От оформления билетов до комфортного трансфера — мы позаботимся о каждом шаге твоего переезда.</p>
                 </div>
-                <div class="condition-card">
-                    <div class="condition-icon">🏡</div>
-                    <h3>Жилье</h3>
+                <div class="relocation-item">
+                    <div class="emoji">🏡</div>
+                    <h3>Жилье на первые 3 месяца</h3>
                     <p>Предоставим комфортное жилье на 3 месяца, чтобы ты могла сосредоточиться на работе.</p>
                 </div>
-                <div class="condition-card">
-                    <div class="condition-icon">📝</div>
+                <div class="relocation-item">
+                    <div class="emoji">📄</div>
                     <h3>Оформление ВНЖ</h3>
                     <p>Мы ускорим процесс получения ВНЖ, чтобы ты могла быстро приступить к работе на таких площадках как OnlyFans и Fansly.</p>
                 </div>
-                <div class="condition-card">
-                    <div class="condition-icon">💸</div>
-                    <h3>Налоги</h3>
+                <div class="relocation-item">
+                    <div class="emoji">💸</div>
+                    <h3>Отсутствие налогов</h3>
                     <p>Трудоустройство не повлечет за собой налоговых обязательств для тебя.</p>
                 </div>
-                <div class="condition-card">
-                    <div class="condition-icon">🌍</div>
-                    <h3>Комфортная жизнь</h3>
-                    <p>В одном из лучших городов Европы ты сможешь сочетать комфортную жизнь с отличными условиями для работы и отдыха.</p>
+                <div class="relocation-item">
+                    <div class="emoji">🌍</div>
+                    <h3>Приятные условия для жизни</h3>
+                    <p>В одном из лучших городов Европы ты сможешь сочетать комфортную жизнь с отличными условиями для работы и отдыха</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Consultation Section -->
-    <section id="consultation" class="section">
+    <section id="consultation" class="consultation">
         <div class="container">
-            <h2 class="section-title">Консультация</h2>
-            <div class="main-content" style="text-align: center;">
-                <a href="https://t.me/lunerastudio" class="cta-button" target="_blank">Получить консультацию в Telegram</a>
-            </div>
+            <h2 class="section-title">Получи консультацию</h2>
+            <a href="https://t.me/lunerastudio" target="_blank" class="consultation-button">Связаться в Telegram</a>
         </div>
     </section>
 
     <script>
-        // Smooth scrolling for navigation
+        // Preloader Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const preloader = document.getElementById('preloader');
+            const loadingPercentage = document.getElementById('loading-percentage');
+            const loadingBarFill = document.getElementById('loading-bar-fill');
+
+            function simulateLoading() {
+                let progress = 0;
+                const totalTime = 2000; // Total loading time in ms
+                const interval = 20; // Update interval
+
+                const timer = setInterval(() => {
+                    progress += (interval / totalTime) * 100;
+                    
+                    // Ease in and out the loading
+                    const easedProgress = progress < 50 
+                        ? 2 * progress * progress / 100 
+                        : (-2 * (progress - 100) * (progress - 100) / 100) + 100;
+
+                    loadingPercentage.textContent = `${Math.min(Math.round(easedProgress), 100)}%`;
+                    loadingBarFill.style.width = `${Math.min(easedProgress, 100)}%`;
+
+                    if (progress >= 100) {
+                        clearInterval(timer);
+                        setTimeout(() => {
+                            preloader.classList.add('fade-out');
+                            setTimeout(() => {
+                                preloader.style.display = 'none';
+                            }, 500);
+                        }, 500);
+                    }
+                }, interval);
+            }
+
+            // Start loading simulation
+            simulateLoading();
+        });
+
+        function toggleMobileMenu() {
+            const navMenu = document.querySelector('.nav-menu');
+            navMenu.classList.toggle('active');
+        }
+
+        // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -349,6 +604,39 @@
                     behavior: 'smooth'
                 });
             });
+        });
+
+        // Cursor Tracker
+        const cursorTracker = document.getElementById('cursor-tracker');
+
+        document.addEventListener('mousemove', (e) => {
+            cursorTracker.style.left = `${e.clientX - 15}px`;
+            cursorTracker.style.top = `${e.clientY - 15}px`;
+        });
+
+        // Audio Player
+        const audio = new Audio('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3'); // Замените на вашу музыку
+        const playPauseBtn = document.getElementById('play-pause');
+        const volumeControl = document.getElementById('volume-control');
+
+        playPauseBtn.addEventListener('click', () => {
+            if (audio.paused) {
+                audio.play();
+                playPauseBtn.textContent = '⏸️';
+            } else {
+                audio.pause();
+                playPauseBtn.textContent = '▶️';
+            }
+        });
+
+        volumeControl.addEventListener('input', () => {
+            audio.volume = volumeControl.value;
+        });
+
+        // Автоповтор музыки
+        audio.addEventListener('ended', () => {
+            audio.currentTime = 0;
+            audio.play();
         });
     </script>
 </body>
